@@ -1,7 +1,7 @@
 console.log("Práctica JS07");
 
-const URL_DELAY="https://reqres.in/api/users?delay=3";
-const URL_PAGE2="https://reqres.in/api/users?page=2";
+const URL_DELAY="https://ameno-dorime.herokuapp.com/api/customers";
+const URL_PAGE2="https://ameno-dorime.herokuapp.com/api/customers";
 const EXP_TIME_SEG=1*60;
 const LOCAL_KEY="localUserData";
 
@@ -64,8 +64,9 @@ function requestApi(url,page){
                             //Almacenamos los datos de manera local
                             localStorage.setItem("localUserData",JSON.stringify({ userArray:dataJSON.data, time:Date.now()}));
                         }
+                        console.log(dataJSON);
                         clearTable();
-                        return showUsers(dataJSON.data);
+                        return showUsers(dataJSON);
                     })
     .catch(err => {alert(" No se pudo mostrar contenido deseado");console.log('Solicitud fallida', err);});        
 }
@@ -84,9 +85,9 @@ function showUsers(arrUsers){
 
         //Creamos nuevo renglón, con la información
         const tableRow=document.createElement("tr");
-        tableRow.innerHTML=`<td class="tdStyle1">${user.id}</td>
-                            <td class="tdStyle2">${user.first_name}</td>
-                            <td class="tdStyle3">${user.last_name}</td>
+        tableRow.innerHTML=`<td class="tdStyle1">${user.idCustomer}</td>
+                            <td class="tdStyle2">${user.firstName}</td>
+                            <td class="tdStyle3">${user.lastName}</td>
                             <td class="tdStyle4">${user.email}</td>
                             <td class="tdStyle5"><image class="photoIm" src="${user.avatar}"/></td>`;
         //Añadirle elemento hijo
@@ -132,5 +133,6 @@ let clear=document.getElementById("clearB");
 page1.addEventListener('click',()=>{document.getElementById("tableTitle").innerHTML="Página 1";requestData(URL_DELAY,1);});
 page2.addEventListener('click',()=>{document.getElementById("tableTitle").innerHTML="Página 2";requestData(URL_PAGE2,2);});
 clear.addEventListener('click',()=>{document.getElementById("tableTitle").innerHTML="";clearTable();});
+
 
 
