@@ -1,29 +1,26 @@
 package org.generation.app.service;
 
 import java.util.List;
+
 import org.generation.app.entity.Customer;
 
 public interface ICustomerService {
-	//LOGICA DE NEGOCIO
-	
 	/**
-	 * 
 	 * Enlista todos los clientes de la base de datos
-	 * @param customer
-	 * @return Listado de Clientes
+	 * @param customer 
+	 * @return Listado de clientes
 	 */
 	public List<Customer> findAllCustomers();
-	
 	/**
 	 * Nos guarda el cliente en la base de datos
 	 * @param customer Datos del cliente
 	 * @return Devuelve el cliente con el Id asignado
-	 */
-	public Customer saveCustomer(Customer customer);
+	 */ 
+	public Customer saveCustomer(Customer customer); 
 	
 	/**
 	 * Elimina un cliente de la base de datos
-	 * @param Id el identificado del cliente a eliminar
+	 * @param Id identificador del cliente a eliminar
 	 */
 	public Customer deleteCustomerById(Long id);
 	
@@ -33,4 +30,6 @@ public interface ICustomerService {
 	 * @return
 	 */
 	public Customer findCustomerById(Long id);
+	
+	
 }

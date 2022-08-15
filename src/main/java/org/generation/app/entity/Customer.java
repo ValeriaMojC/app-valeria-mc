@@ -11,21 +11,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "customer_data")
-public class Customer implements Serializable{
+@Table(name="customer_data")
+public class Customer implements Serializable{ 
 	private static final long serialVersionUID = 1L;
-	@Id                   //IDENTITY hace que el campo sea autoincrementable
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCustomer;
-	//@Size(min = 4, max = 100)
-	@Column(name = "first_name") //Para nombrar mi columna
-	private String firstName;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idCustomer; //id_customer
+	@Column(name="first_name")
+	private String firstName; //first_name
 	private String lastName;
-	@ManyToOne (fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Role role;
 	
-//	@OneToMany //de un cliente tendre muchas ordenes
+//	@OneToMany
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 //	private List<Order> orders;
+	
 }

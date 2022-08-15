@@ -8,25 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerServiceImp implements ICustomerService{
-	
+public class CustomerServiceImp implements ICustomerService {
+
 	@Autowired
 	ICustomerRepository customerRepository;
-
+	
 	@Override
-	public List<Customer> findAllCustomers() {
-		//Entrega una coleccion, para que sea una lista se tiene que castear
-		return (List<Customer>) customerRepository.findAll(); 
+	public List<Customer> findAllCustomers() {		
+		return (List<Customer>) customerRepository.findAll();
 	}
 
 	@Override
-	public Customer saveCustomer(Customer customer) {
+	public Customer saveCustomer(Customer customer) {		
 		return customerRepository.save(customer);
 	}
 
 	@Override
 	public Customer deleteCustomerById(Long id) {
-		return null;
+		Customer customer= findCustomerById(id);
+		customerRepository.deleteById(id);
+		return customer;
 	}
 
 	@Override

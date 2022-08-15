@@ -11,7 +11,6 @@
 	<groupId>org.generation</groupId>
 	<artifactId>gs-accessing-data-jpa-mysql</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 	<name>gs-accessing-data-jpa-mysql</name>
 	<description>Uso JPA y MySQL</description>
 	<properties>
@@ -41,15 +40,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

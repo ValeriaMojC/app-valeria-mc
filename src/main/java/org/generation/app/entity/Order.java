@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
-
 @Entity
 @Data
 @Table(name="customer_order")
@@ -32,9 +31,8 @@ public class Order implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Customer customer;
 	
-	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})	
-	private List<Producto> products;
+	private List<Product> products;
 }
 
